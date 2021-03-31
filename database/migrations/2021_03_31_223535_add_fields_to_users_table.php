@@ -28,20 +28,7 @@ class AddFieldsToUsersTable extends Migration
 			$table->boolean('approved')->nullable();
 			$table->timestamps();
 		});
-		
-		User::create([
-				'email' => 'user@test.com',
-				'name' => 'Иван',
-				'lastname' => 'Иванов',
-				'password' => Hash::make('user')
-		]);
-		User::create([
-			'email' => 'leader@test.com',
-			'name' => 'Василий',
-			'lastname' => 'Петров',
-			'password' => Hash::make('leader'),
-			'leader' => true
-		]);
+
     }
 
     /**

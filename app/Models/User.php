@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Vacation;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+		'lastname',
+		'leader'
     ];
 
     /**
@@ -40,4 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	public static function boot()
+    {
+        parent::boot();
+
+        self::created(function($model){
+            Vacation::create([
+				'user_id' => $model->id
+			]);
+        });
+    }
 }

@@ -14,4 +14,13 @@ class Vacation extends Model
         'end_date',
 		'approved'
     ];
+	
+	public function user(){
+		return $this->belongsTo(User::class);
+	}
+	
+	public function getApprovedTextAttribute()
+	{
+		return $this->approved ? 'Да' : 'Нет';
+	}
 }

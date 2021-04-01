@@ -1,3 +1,19 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+table {
+	width: 100%;
+	border: 2px solid black;
+}
+table td {
+	width: 25%;
+	border: 1px solid grey;
+	padding: 1%;
+}
+tr.curr-user-row {
+	background-color: #d3ffd3;
+}
+.mt1 {
+	margin-top: 1rem;
+}

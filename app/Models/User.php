@@ -44,6 +44,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 	
+	public function vacation(){
+		return $this->hasOne(Vacation::class);
+	}
+	
 	public static function boot()
     {
         parent::boot();
@@ -54,4 +58,8 @@ class User extends Authenticatable
 			]);
         });
     }
+	public function getFullnameAttribute()
+	{
+		return "{$this->name} {$this->lastname}";
+	}
 }
